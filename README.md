@@ -1,1 +1,3 @@
 # Chemprop_AIE_ACQ
+# Continuously updating...  
+# Contact email: zhangsc2025@qq.com
