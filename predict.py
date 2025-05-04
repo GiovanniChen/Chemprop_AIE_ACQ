@@ -3,7 +3,7 @@ import chemprop
 def main():
     arguments = [
         '--test_path', './data/AIE_ACQ/data.csv',
-        '--preds_path', '¡£/data/AIE_ACQ/data_preds.csv',
+        '--preds_path', './data/AIE_ACQ/data_preds.csv',
         '--checkpoint_dir', '20240503_checkpoints_RDKit_best',
         # '--checkpoint_dir', '20240503_checkpoints_RDKit_best_forinterpret',
         '--num_workers', '4',
