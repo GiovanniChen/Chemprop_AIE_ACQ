@@ -5,12 +5,11 @@ from rdkit.Chem import AllChem
 from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score, f1_score, matthews_corrcoef
 
 # 加载模型
-model_filename = "20240424_xgb_model_GridSearchCV_best.pkl"
+model_filename = "xgb_model.pkl"
 model = joblib.load(model_filename)
 
 # 读取新的CSV文件
-# new_data_file_path = "C:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_test.csv"
-new_data_file_path = "C:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_train.csv"
+new_data_file_path = "AIEACQ_test.csv"
 new_data = pd.read_csv(new_data_file_path)
 
 # 确保新数据集中包含真实标签列
@@ -58,8 +57,7 @@ print(f"Matthews Correlation Coefficient (MCC): {mcc}")
 predictions_df = pd.DataFrame({'SMILES': new_data['SMILES'], 'Predicted Label': predicted_labels})
 
 # 将预测结果保存到新的CSV文件中
-# output_csv_path = "20240424_XGBoost_pred.csv"
-output_csv_path = "20250505_XGBoost_train_pred.csv"
+output_csv_path = "XGBoost_pred.csv"
 predictions_df.to_csv(output_csv_path, index=False)
 
 print(f"Predictions and metrics saved to {output_csv_path}")
