@@ -1,0 +1,63 @@
+import pandas as pd
+from sklearn.model_selection import GridSearchCV, KFold
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.neural_network import MLPClassifier
+from sklearn.pipeline import Pipeline
+from rdkit import Chem
+from rdkit.Chem import AllChem
+import joblib
+
+# 读取包含SMILES和标签的数据
+file_path = "C:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_train.csv"
+column_names = ["SMILES", "Label"]
+data = pd.read_csv(file_path, usecols=column_names)
+
+# 使用LabelEncoder将目标标签编码为整数
+label_encoder = LabelEncoder()
+data["Label"] = label_encoder.fit_transform(data["Label"])
+
+# 通过RDKit计算Morgan指纹作为特征
+data['Morgan_Features'] = data['SMILES'].apply(lambda x: AllChem.GetMorganFingerprintAsBitVect(Chem.MolFromSmiles(x), 2))
+
+# 将Morgan指纹转换为DataFrame
+features = pd.DataFrame(data['Morgan_Features'].apply(lambda x: pd.Series(list(x.ToBitString()))).values.astype(int))
+
+# 创建预处理和模型训练的管道
+pipeline = Pipeline([
+    ('scaler', StandardScaler()),
+    ('mlp', MLPClassifier(random_state=42))
+])
+
+# 设置超参数网格
+param_grid = {
+    'mlp__hidden_layer_sizes': [(100,), (200,), (100, 100)],
+    'mlp__activation': ['tanh', 'relu'],
+    'mlp__solver': ['adam', 'sgd'],
+    'mlp__max_iter': [500, 800],
+    'mlp__alpha': [0.0001, 0.001]
+}
+
+# 初始化KFold进行交叉验证
+kf = KFold(n_splits=10, shuffle=True, random_state=42)
+
+# 初始化GridSearchCV
+grid_search = GridSearchCV(estimator=pipeline, param_grid=param_grid, cv=kf, scoring='roc_auc_ovr', n_jobs=-1, verbose=2)
+#f1_weighted
+
+# 计算特征
+features = features.values
+labels = data["Label"].values
+
+# 执行超参数优化
+grid_search.fit(features, labels)
+
+# 打印最佳超参数组合
+print("Best parameters found:")
+print(grid_search.best_params_)
+
+# # 保存最佳模型
+# best_model = grid_search.best_estimator_
+# model_filename = "20240424_mlp_model_GridSearchCV_best.pkl"
+# joblib.dump(best_model, model_filename)
+#
+# print(f"Best model saved to {model_filename}")
