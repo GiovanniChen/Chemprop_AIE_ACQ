@@ -8,7 +8,7 @@ from xgboost import XGBClassifier
 import pickle
 
 # 定义文件路径和列名
-file_path = "C:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_train.csv"
+file_path = "AIEACQ_train.csv"
 column_names = ["SMILES", "Label"]
 
 # 读取数据
@@ -57,7 +57,7 @@ print(grid_search.best_params_)
 
 # 保存最佳模型
 best_model = grid_search.best_estimator_
-model_filename = "20240424_xgb_model_GridSearchCV_best.pkl"
+model_filename = "xgb_model.pkl"
 with open(model_filename, 'wb') as file:
     pickle.dump(best_model, file)
 
