@@ -7,8 +7,8 @@ sys.path.append(os.path.join(RDConfig.RDContribDir, 'SA_Score'))
 import sascorer
 
 # 读取原始CSV文件路径和输出CSV文件路径
-input_csv = 'E:/BIT/codes/chemprop/data/AIE_ACQ/design/test1108.csv'
-output_csv = 'E:/BIT/codes/chemprop/data/AIE_ACQ/design/test1108_SAScore.csv'
+input_csv = 'docking_scheme1.csv'
+output_csv = 'docking_scheme1_SAScore.csv'
 
 # 读取CSV文件
 df = pd.read_csv(input_csv)
