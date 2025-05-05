@@ -18,9 +18,8 @@ from rdkit import Chem
 from rdkit.Chem import BRICS
 import re
 
-input_csv = 'C:/BIT/codes/chemprop/AIE_ACQ/inter/934AIE_0706.1.csv'
-# input_csv = 'C:/BIT/codes/chemprop/data/AIE_ACQ/design/test1.csv'
-output_csv = 'C:/BIT/codes/chemprop/data/AIE_ACQ/design/docking_test6.csv'
+input_csv = 'AIEgens.csv'
+output_csv = 'docking_test1.csv'
 
 df = pd.read_csv(input_csv)
 
