@@ -1,0 +1,24 @@
+Fold 0
+Model 0 best validation auc = 0.837992 on epoch 24
+Model 0 test auc = 0.992635
+Model 0 test accuracy = 0.975000
+Model 0 test prc-auc = 0.997884
+Model 0 test f1 = 0.984293
+Model 0 test mcc = 0.925881
+Ensemble test auc = 0.992635
+Ensemble test accuracy = 0.975000
+Ensemble test prc-auc = 0.997884
+Ensemble test f1 = 0.984293
+Ensemble test mcc = 0.925881
+1-fold cross validation
+	Seed 75 ==> test auc = 0.992635
+	Seed 75 ==> test accuracy = 0.975000
+	Seed 75 ==> test prc-auc = 0.997884
+	Seed 75 ==> test f1 = 0.984293
+	Seed 75 ==> test mcc = 0.925881
+Overall test auc = 0.992635 +/- 0.000000
+Overall test accuracy = 0.975000 +/- 0.000000
+Overall test prc-auc = 0.997884 +/- 0.000000
+Overall test f1 = 0.984293 +/- 0.000000
+Overall test mcc = 0.925881 +/- 0.000000
+Elapsed time = 0:07:13

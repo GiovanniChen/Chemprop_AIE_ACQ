@@ -1,0 +1,410 @@
+Command line
+python E:\BIT\codes\chemprop\AIE_ACQ\train_best.py
+Args
+{'activation': 'ReLU',
+ 'adding_bond_types': True,
+ 'adding_h': False,
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'atom_constraints': [],
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'atom_targets': [],
+ 'batch_size': 100,
+ 'bias': False,
+ 'bias_solvent': False,
+ 'bond_constraints': [],
+ 'bond_descriptor_scaling': True,
+ 'bond_descriptors': None,
+ 'bond_descriptors_path': None,
+ 'bond_descriptors_size': 0,
+ 'bond_features_size': 0,
+ 'bond_targets': [],
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': None,
+ 'constraints_path': None,
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': True,
+ 'data_path': 'E:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_train.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 5,
+ 'depth_solvent': 3,
+ 'device': device(type='cuda'),
+ 'dropout': 0.25,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 30,
+ 'evidential_regularization': 0,
+ 'explicit_h': False,
+ 'extra_metrics': ['accuracy', 'prc-auc', 'f1', 'mcc'],
+ 'features_generator': ['rdkit_2d_normalized'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': False,
+ 'features_size': None,
+ 'ffn_hidden_size': 1400,
+ 'ffn_num_layers': 2,
+ 'final_lr': 0.00017424185057835588,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 1300,
+ 'hidden_size_solvent': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0016475184132470895,
+ 'is_atom_bond_targets': False,
+ 'keeping_atom_map': False,
+ 'log_frequency': 10,
+ 'loss_function': 'binary_cross_entropy',
+ 'max_data_size': None,
+ 'max_lr': 0.00026550826157806045,
+ 'metric': 'auc',
+ 'metrics': ['auc', 'accuracy', 'prc-auc', 'f1', 'mcc'],
+ 'minimize_score': False,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_adding_bond_types': False,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_descriptor_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': True,
+ 'no_shared_atom_bond_ffn': False,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 4,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'reaction_solvent': False,
+ 'resume_experiment': False,
+ 'save_dir': '20240503_checkpoints_RDKit_best_ensemble_forinterpret',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 75,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_descriptors_path': None,
+ 'separate_test_constraints_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': 'E:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_test.csv',
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_descriptors_path': None,
+ 'separate_val_constraints_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'separate_val_phase_features_path': None,
+ 'shared_atom_bond_ffn': True,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['SMILES'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_key_molecule': 0,
+ 'split_sizes': [0.9, 0.1, 0.0],
+ 'split_type': 'random',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['Label'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 4.0,
+ 'weights_ffn_num_layers': 2}
+Setting molecule featurization parameters to default.
+Loading data
+Number of tasks = 1
+Fold 0
+Splitting data with seed 75
+Class sizes
+Label 0: 21.42%, 1: 78.58%
+Total size = 1,069 | train size = 962 | val size = 107 | test size = 120
+Building model 0
+MoleculeModel(
+  (sigmoid): Sigmoid()
+  (encoder): MPN(
+    (encoder): ModuleList(
+      (0): MPNEncoder(
+        (dropout): Dropout(p=0.25, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=1300, bias=False)
+        (W_h): Linear(in_features=1300, out_features=1300, bias=False)
+        (W_o): Linear(in_features=1433, out_features=1300, bias=True)
+      )
+    )
+  )
+  (readout): Sequential(
+    (0): Dropout(p=0.25, inplace=False)
+    (1): Linear(in_features=1500, out_features=1400, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.25, inplace=False)
+    (4): Linear(in_features=1400, out_features=1, bias=True)
+  )
+)
+Number of parameters = 5,849,401
+Moving model to cuda
+Epoch 0
+Validation auc = 0.775362
+Validation accuracy = 0.878505
+Validation prc-auc = 0.904386
+Validation f1 = 0.928177
+Validation mcc = 0.613606
+Epoch 1
+Loss = 3.3564e-01, PNorm = 67.4431, GNorm = 0.2332, lr_0 = 1.1868e-03
+Validation auc = 0.788820
+Validation accuracy = 0.850467
+Validation prc-auc = 0.915495
+Validation f1 = 0.906977
+Validation mcc = 0.530795
+Epoch 2
+Loss = 2.4943e-01, PNorm = 67.9967, GNorm = 0.2766, lr_0 = 8.0296e-04
+Validation auc = 0.791408
+Validation accuracy = 0.859813
+Validation prc-auc = 0.916635
+Validation f1 = 0.913295
+Validation mcc = 0.555341
+Epoch 3
+Loss = 2.3927e-01, PNorm = 68.1670, GNorm = 0.2476, lr_0 = 3.8068e-04
+Validation auc = 0.803313
+Validation accuracy = 0.850467
+Validation prc-auc = 0.922974
+Validation f1 = 0.906977
+Validation mcc = 0.530795
+Epoch 4
+Loss = 2.7606e-01, PNorm = 68.2004, GNorm = 0.2731, lr_0 = 2.6218e-04
+Validation auc = 0.812629
+Validation accuracy = 0.850467
+Validation prc-auc = 0.927805
+Validation f1 = 0.906977
+Validation mcc = 0.530795
+Epoch 5
+Loss = 2.5510e-01, PNorm = 68.2167, GNorm = 0.2450, lr_0 = 2.5751e-04
+Validation auc = 0.813147
+Validation accuracy = 0.878505
+Validation prc-auc = 0.928464
+Validation f1 = 0.925714
+Validation mcc = 0.609946
+Epoch 6
+Loss = 2.5103e-01, PNorm = 68.2290, GNorm = 0.3211, lr_0 = 2.5246e-04
+Validation auc = 0.823499
+Validation accuracy = 0.850467
+Validation prc-auc = 0.932463
+Validation f1 = 0.906977
+Validation mcc = 0.530795
+Epoch 7
+Loss = 2.3341e-01, PNorm = 68.2388, GNorm = 0.3312, lr_0 = 2.4795e-04
+Validation auc = 0.821946
+Validation accuracy = 0.887850
+Validation prc-auc = 0.932253
+Validation f1 = 0.932584
+Validation mcc = 0.641058
+Epoch 8
+Loss = 2.0234e-01, PNorm = 68.2498, GNorm = 0.2685, lr_0 = 2.4309e-04
+Validation auc = 0.826605
+Validation accuracy = 0.850467
+Validation prc-auc = 0.933100
+Validation f1 = 0.906977
+Validation mcc = 0.530795
+Epoch 9
+Loss = 2.2585e-01, PNorm = 68.2627, GNorm = 0.3492, lr_0 = 2.3876e-04
+Validation auc = 0.829710
+Validation accuracy = 0.859813
+Validation prc-auc = 0.934376
+Validation f1 = 0.913295
+Validation mcc = 0.555341
+Epoch 10
+Loss = 2.3324e-01, PNorm = 68.2759, GNorm = 0.6596, lr_0 = 2.3450e-04
+Validation auc = 0.831263
+Validation accuracy = 0.878505
+Validation prc-auc = 0.934738
+Validation f1 = 0.925714
+Validation mcc = 0.609946
+Epoch 11
+Loss = 2.3208e-01, PNorm = 68.2909, GNorm = 0.9921, lr_0 = 2.2990e-04
+Validation auc = 0.832816
+Validation accuracy = 0.878505
+Validation prc-auc = 0.936225
+Validation f1 = 0.925714
+Validation mcc = 0.609946
+Epoch 12
+Loss = 1.8907e-01, PNorm = 68.3049, GNorm = 0.2288, lr_0 = 2.2580e-04
+Validation auc = 0.830228
+Validation accuracy = 0.859813
+Validation prc-auc = 0.935542
+Validation f1 = 0.913295
+Validation mcc = 0.555341
+Epoch 13
+Loss = 2.1402e-01, PNorm = 68.3174, GNorm = 0.8943, lr_0 = 2.2177e-04
+Validation auc = 0.834886
+Validation accuracy = 0.897196
+Validation prc-auc = 0.937574
+Validation f1 = 0.938547
+Validation mcc = 0.679211
+Epoch 14
+Loss = 2.0925e-01, PNorm = 68.3300, GNorm = 0.3135, lr_0 = 2.1742e-04
+Validation auc = 0.836957
+Validation accuracy = 0.859813
+Validation prc-auc = 0.938304
+Validation f1 = 0.913295
+Validation mcc = 0.555341
+Epoch 15
+Loss = 1.9843e-01, PNorm = 68.3440, GNorm = 0.4862, lr_0 = 2.1354e-04
+Validation auc = 0.834886
+Validation accuracy = 0.887850
+Validation prc-auc = 0.938375
+Validation f1 = 0.932584
+Validation mcc = 0.641058
+Epoch 16
+Loss = 2.1201e-01, PNorm = 68.3593, GNorm = 0.3075, lr_0 = 2.0936e-04
+Validation auc = 0.831781
+Validation accuracy = 0.887850
+Validation prc-auc = 0.936726
+Validation f1 = 0.932584
+Validation mcc = 0.641058
+Epoch 17
+Loss = 1.7727e-01, PNorm = 68.3756, GNorm = 0.3289, lr_0 = 2.0562e-04
+Validation auc = 0.830745
+Validation accuracy = 0.869159
+Validation prc-auc = 0.934808
+Validation f1 = 0.920455
+Validation mcc = 0.575072
+Epoch 18
+Loss = 1.7996e-01, PNorm = 68.3906, GNorm = 0.7731, lr_0 = 2.0195e-04
+Validation auc = 0.833333
+Validation accuracy = 0.841121
+Validation prc-auc = 0.935997
+Validation f1 = 0.901734
+Validation mcc = 0.494521
+Epoch 19
+Loss = 1.9175e-01, PNorm = 68.4040, GNorm = 0.2822, lr_0 = 1.9800e-04
+Validation auc = 0.833333
+Validation accuracy = 0.897196
+Validation prc-auc = 0.938337
+Validation f1 = 0.938547
+Validation mcc = 0.679211
+Epoch 20
+Loss = 1.8348e-01, PNorm = 68.4181, GNorm = 0.2866, lr_0 = 1.9446e-04
+Validation auc = 0.834369
+Validation accuracy = 0.850467
+Validation prc-auc = 0.939678
+Validation f1 = 0.908046
+Validation mcc = 0.519400
+Epoch 21
+Loss = 1.9005e-01, PNorm = 68.4340, GNorm = 0.5184, lr_0 = 1.9099e-04
+Validation auc = 0.827640
+Validation accuracy = 0.850467
+Validation prc-auc = 0.936654
+Validation f1 = 0.908046
+Validation mcc = 0.519400
+Epoch 22
+Loss = 1.7776e-01, PNorm = 68.4526, GNorm = 0.5222, lr_0 = 1.8725e-04
+Validation auc = 0.829710
+Validation accuracy = 0.897196
+Validation prc-auc = 0.939029
+Validation f1 = 0.938547
+Validation mcc = 0.679211
+Epoch 23
+Loss = 1.8437e-01, PNorm = 68.4658, GNorm = 0.9706, lr_0 = 1.8391e-04
+Loss = 2.2689e-01, PNorm = 68.4672, GNorm = 0.3473, lr_0 = 1.8358e-04
+Validation auc = 0.835921
+Validation accuracy = 0.878505
+Validation prc-auc = 0.942381
+Validation f1 = 0.926554
+Validation mcc = 0.606549
+Epoch 24
+Loss = 1.7761e-01, PNorm = 68.4830, GNorm = 0.9675, lr_0 = 1.8030e-04
+Validation auc = 0.837992
+Validation accuracy = 0.841121
+Validation prc-auc = 0.944896
+Validation f1 = 0.901734
+Validation mcc = 0.494521
+Epoch 25
+Loss = 1.7630e-01, PNorm = 68.5007, GNorm = 1.0852, lr_0 = 1.7709e-04
+Validation auc = 0.835404
+Validation accuracy = 0.869159
+Validation prc-auc = 0.944162
+Validation f1 = 0.920455
+Validation mcc = 0.575072
+Epoch 26
+Validation auc = 0.833851
+Validation accuracy = 0.841121
+Validation prc-auc = 0.942872
+Validation f1 = 0.901734
+Validation mcc = 0.494521
+Epoch 27
+Loss = 2.3724e-01, PNorm = 68.5202, GNorm = 0.4239, lr_0 = 1.7424e-04
+Validation auc = 0.835404
+Validation accuracy = 0.887850
+Validation prc-auc = 0.944665
+Validation f1 = 0.932584
+Validation mcc = 0.641058
+Epoch 28
+Loss = 1.0545e-01, PNorm = 68.5359, GNorm = 0.5593, lr_0 = 1.7424e-04
+Validation auc = 0.834369
+Validation accuracy = 0.850467
+Validation prc-auc = 0.943870
+Validation f1 = 0.908046
+Validation mcc = 0.519400
+Epoch 29
+Loss = 1.8491e-01, PNorm = 68.5539, GNorm = 0.7902, lr_0 = 1.7424e-04
+Validation auc = 0.835921
+Validation accuracy = 0.869159
+Validation prc-auc = 0.946181
+Validation f1 = 0.920455
+Validation mcc = 0.575072
+Model 0 best validation auc = 0.837992 on epoch 24
+Loading pretrained parameter "encoder.encoder.0.cached_zero_vector".
+Loading pretrained parameter "encoder.encoder.0.W_i.weight".
+Loading pretrained parameter "encoder.encoder.0.W_h.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.bias".
+Loading pretrained parameter "readout.1.weight".
+Loading pretrained parameter "readout.1.bias".
+Loading pretrained parameter "readout.4.weight".
+Loading pretrained parameter "readout.4.bias".
+Moving model to cuda
+Model 0 test auc = 0.992635
+Model 0 test accuracy = 0.975000
+Model 0 test prc-auc = 0.997884
+Model 0 test f1 = 0.984293
+Model 0 test mcc = 0.925881
+Ensemble test auc = 0.992635
+Ensemble test accuracy = 0.975000
+Ensemble test prc-auc = 0.997884
+Ensemble test f1 = 0.984293
+Ensemble test mcc = 0.925881
+1-fold cross validation
+	Seed 75 ==> test auc = 0.992635
+	Seed 75 ==> test accuracy = 0.975000
+	Seed 75 ==> test prc-auc = 0.997884
+	Seed 75 ==> test f1 = 0.984293
+	Seed 75 ==> test mcc = 0.925881
+Overall test auc = 0.992635 +/- 0.000000
+Overall test accuracy = 0.975000 +/- 0.000000
+Overall test prc-auc = 0.997884 +/- 0.000000
+Overall test f1 = 0.984293 +/- 0.000000
+Overall test mcc = 0.925881 +/- 0.000000
+Elapsed time = 0:07:13

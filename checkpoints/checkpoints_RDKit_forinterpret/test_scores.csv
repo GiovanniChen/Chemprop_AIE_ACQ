@@ -1,0 +1,2 @@
+Task,Mean auc,Standard deviation auc,Fold 0 auc,Mean accuracy,Standard deviation accuracy,Fold 0 accuracy,Mean prc-auc,Standard deviation prc-auc,Fold 0 prc-auc,Mean f1,Standard deviation f1,Fold 0 f1,Mean mcc,Standard deviation mcc,Fold 0 mcc
+Label,0.9926350245499183,0.0,0.9926350245499183,0.975,0.0,0.975,0.9978842885981598,0.0,0.9978842885981598,0.9842931937172774,0.0,0.9842931937172774,0.9258812806812436,0.0,0.9258812806812436
