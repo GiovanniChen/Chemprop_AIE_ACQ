@@ -2,7 +2,7 @@ import chemprop
 
 def main():
     arguments = [
-        '--data_path', './data/AIE_ACQ/AIEACQ_train.csv',
+        '--data_path', 'AIEACQ_train.csv',
         '--dataset_type', 'classification',
         # 'regression', 'classification', 'multiclass', 'spectra'
         # '--multiclass_num_classes', '4',
@@ -14,13 +14,12 @@ def main():
         # 'random', 'scaffold_balanced'
         # 'predetermined', 'crossval'
         # 'cv', 'cv-no-test', 'index_predetermined', 'random_with_repeated_smiles'
-        '--separate_test_path', './data/AIE_ACQ/AIEACQ_test.csv',
+        '--separate_test_path', 'AIEACQ_test.csv',
 
         '--features_generator', 'rdkit_2d_normalized',
         # 'morgan', 'morgan_count', 'rdkit_2d', 'rdkit_2d_normalized'
         '--no_features_scaling',
         # When using rdkit_2d_normalized features, --no_features_scaling must be specified.
-        # '--features_path', './data/AIE_ACQ/molecules_descriptor.csv',
 
         # '--depth', '3',
         # '--hidden_size', '1400',
@@ -60,10 +59,10 @@ def main():
         # final_lr, init_lr, max_lr, warmup_epochs
 
         '--num_iters', '100',
-        '--config_save_path', './AIE_ACQ/hyperopt_20240421/hyperopt_config.json',
-        '--hyperopt_checkpoint_dir', './AIE_ACQ/hyperopt_20240421/hyperopt_checkpoint',
-        '--log_dir', './AIE_ACQ/hyperopt_20240421/log',
-        '--save_dir', './AIE_ACQ/hyperopt_20240421/hyperopt_save'
+        '--config_save_path', 'hyperopt_config.json',
+        '--hyperopt_checkpoint_dir', 'hyperopt_checkpoint',
+        '--log_dir', 'hyperopt/log',
+        '--save_dir', '.hyperopt/hyperopt_save'
     ]
 
     args = chemprop.args.HyperoptArgs().parse_args(arguments)
