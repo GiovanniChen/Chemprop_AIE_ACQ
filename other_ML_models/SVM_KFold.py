@@ -8,7 +8,7 @@ from sklearn.pipeline import Pipeline
 import joblib
 
 # 读取包含SMILES和标签的数据
-file_path = "C:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_train.csv"
+file_path = "AIEACQ_train.csv"
 column_names = ["SMILES", "Label"]
 data = pd.read_csv(file_path, usecols=column_names)
 
@@ -55,8 +55,8 @@ print("Best parameters found:")
 print(grid_search.best_params_)
 #
 # # 保存最佳模型和特征缩放器
-# model_filename = "20240424_svm_model_GridSearchCV_best.pkl"
-# scaler_filename = "20240424_svm_scaler_GridSearchCV_best.pkl"
+# model_filename = "svm_model.pkl"
+# scaler_filename = "svm_scaler.pkl"
 #
 # joblib.dump(grid_search.best_estimator_, model_filename)
 # joblib.dump(grid_search.best_estimator_.named_steps['scaler'], scaler_filename)
