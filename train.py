@@ -6,7 +6,7 @@ def main():
         # # 拆分数据集使用的随机种子
         # '--pytorch_seed', '0',
 
-        # '--data_path', 'AIEACQ_train.csv',
+        '--data_path', 'AIEACQ_train.csv',
         '--dataset_type', 'classification',
         # 'regression', 'classification', 'multiclass', 'spectra'
         # '--multiclass_num_classes', '4',
