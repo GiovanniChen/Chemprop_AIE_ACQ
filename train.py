@@ -6,8 +6,7 @@ def main():
         # # 拆分数据集使用的随机种子
         # '--pytorch_seed', '0',
 
-        # '--data_path', './data/AIE_ACQ/AIEACQ_train.csv',
-        '--data_path', './data/AIE_ACQ/AIEACQ_train.csv',
+        # '--data_path', 'AIEACQ_train.csv',
         '--dataset_type', 'classification',
         # 'regression', 'classification', 'multiclass', 'spectra'
         # '--multiclass_num_classes', '4',
@@ -19,7 +18,7 @@ def main():
         # 'random', 'scaffold_balanced'
         # 'predetermined', 'crossval'
         # 'cv', 'cv-no-test', 'index_predetermined', 'random_with_repeated_smiles'
-        '--separate_test_path', './data/AIE_ACQ/AIEACQ_test.csv',
+        '--separate_test_path', 'AIEACQ_test.csv',
 
         '--ensemble_size', '5',
 
@@ -27,8 +26,7 @@ def main():
         # 'morgan', 'morgan_count', 'rdkit_2d', 'rdkit_2d_normalized'
         '--no_features_scaling',
         # When using rdkit_2d_normalized features, --no_features_scaling must be specified.
-        # '--features_path', './data/AIE_ACQ/molecules_descriptor.csv',
-
+        
         '--depth', '5',
         '--hidden_size', '1300',
         '--ffn_num_layers', '2',
@@ -61,7 +59,7 @@ def main():
         '--batch_size', '100',
         '--epochs', '30',
         '--warmup_epochs', '4',
-        # '--num_folds', '5',
+        # '--num_folds', '10',
 
         '--save_dir', 'checkpoints_x'
     ]
