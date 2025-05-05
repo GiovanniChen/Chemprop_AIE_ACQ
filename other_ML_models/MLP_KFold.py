@@ -8,7 +8,7 @@ from rdkit.Chem import AllChem
 import joblib
 
 # 读取包含SMILES和标签的数据
-file_path = "C:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_train.csv"
+file_path = "AIEACQ_train.csv"
 column_names = ["SMILES", "Label"]
 data = pd.read_csv(file_path, usecols=column_names)
 
@@ -57,7 +57,7 @@ print(grid_search.best_params_)
 
 # # 保存最佳模型
 # best_model = grid_search.best_estimator_
-# model_filename = "20240424_mlp_model_GridSearchCV_best.pkl"
+# model_filename = "mlp_model.pkl"
 # joblib.dump(best_model, model_filename)
 #
 # print(f"Best model saved to {model_filename}")
