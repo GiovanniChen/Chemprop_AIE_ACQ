@@ -77,7 +77,7 @@ def process_csv_files(file1, file2, output_csv):
 # 设置随机种子，以便结果可以复现
 random.seed(9)
 # 调用函数，传入CSV文件路径和输出CSV文件路径
-docking1_path = 'C:/BIT/codes/chemprop/data/AIE_ACQ/design/docking_test5.csv'
-docking2_path = 'C:/BIT/codes/chemprop/data/AIE_ACQ/design/docking_test6.csv'
-output_path= 'C:/BIT/codes/chemprop/data/AIE_ACQ/design/test0706/docking_test_result2.csv'
+docking1_path = 'docking_test1.csv'
+docking2_path = 'docking_test2.csv'
+output_path= 'docking_test_result.csv'
 process_csv_files(docking1_path, docking2_path, output_path)
