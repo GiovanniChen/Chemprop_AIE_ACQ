@@ -5,14 +5,13 @@ from rdkit.Chem import AllChem
 from sklearn.metrics import roc_auc_score, average_precision_score, accuracy_score, f1_score, matthews_corrcoef
 
 # 加载模型和特征缩放器
-model_filename = "20240424_svm_model_GridSearchCV_best.pkl"
-scaler_filename = "20240424_svm_scaler_GridSearchCV_best.pkl"
+model_filename = "svm_model.pkl"
+scaler_filename = "svm_scaler.pkl"
 model = joblib.load(model_filename)
 scaler = joblib.load(scaler_filename)
 
 # 读取新的CSV文件
-# new_data_file_path = "C:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_test.csv"
-new_data_file_path = "C:/BIT/codes/chemprop/data/AIE_ACQ/AIEACQ_train.csv"
+new_data_file_path = "AIEACQ_test.csv"
 new_data = pd.read_csv(new_data_file_path)
 
 # 对新数据的SMILES使用RDKit计算Morgan指纹作为特征
@@ -62,8 +61,7 @@ print(f"Matthews Correlation Coefficient (MCC): {mcc}")
 predictions_df = pd.DataFrame({'SMILES': new_data['SMILES'], 'Label': predicted_labels})
 
 # 将预测结果保存到新的CSV文件中
-# output_csv_path = "20240424_SVM_pred.csv"
-output_csv_path = "20250505_SVM_train_pred.csv"
+output_csv_path = "SVM_pred.csv"
 predictions_df.to_csv(output_csv_path, index=False)
 
 print(f"Predictions saved to {output_csv_path}")
